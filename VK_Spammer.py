@@ -1,19 +1,12 @@
 from vkmini import VkApi
 from numba import njit, prange
 
-
-
+idsl1=open('obrab.txt','r')
 
 tokens = ('ac2106499883ac52f33e0546974ef607e49e4c06015d904e86f47f616ec8f727e8735136e1e387908c8da&expires_in=0&user_id=529239102&email=kostua7363@gmail.com', '95b9f9fe94b836b9b84a833dd1cccc6ce1a406c2e9b2697e6e72c941e5875448c5080cee731289172890a&expires_in=0&user_id=634057233')
-idsl = ['chikito228', 'black_cat_kl_fr','chikito228', 'black_cat_kl_fr']
-
-
-
-
-
+idsl = idsl1.read().split('\n')
 
 mam = dict()
-
 
 @njit(fastmath=True, parallel=True)
 def reload_kit(): #Load to dict new ids
@@ -114,3 +107,5 @@ for l in tokens: #Send 20 message of all tokens
     user = vk.users.get()[0]
     user_id = user['id']
     delsend()
+
+idsl1.close
